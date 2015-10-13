@@ -52,7 +52,6 @@
                                 tabbar
                                 multiple-cursors
                                 smartrep
-                                ace-jump-mode
                                 golden-ratio
                                 switch-window
                                 undo-tree
@@ -101,6 +100,10 @@
                                 protobuf-mode
                                 dockerfile-mode
                                 rainbow-mode
+                                mmm-mode
+                                ace-jump-mode
+                                avy
+
 
                                 ;; Dired
                                 dired-details
@@ -142,9 +145,6 @@
 
 (require 'init-util)
 (require 'init-bootstrap)
-
-(require 'ffap)
-(require 'restclient)
 (require 'helm-projectile)
 (require 'init-mac)
 (require 'init-mode-mapps)
@@ -174,7 +174,6 @@
 (require 'init-clipboard)
 (require 'init-keybindings)
 (require 'init-neotree)
-
 (require 'init-misc-modes)
 (require 'init-org-mode)
 (require 'init-cc-mode)
@@ -186,6 +185,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("5999e12c8070b9090a2a1bbcd02ec28906e150bb2cdce5ace4f965c76cf30476" "d8f76414f8f2dcb045a37eb155bfaa2e1d17b6573ed43fb1d18b936febc7bbc2" default)))
  '(git-gutter:added-sign "++")
  '(git-gutter:deleted-sign "--")
  '(git-gutter:handled-backends (quote (git hg bzr)))

@@ -138,6 +138,12 @@
 (show-smartparens-global-mode +1)
 (smartparens-global-mode 1)
 
+(require 'ffap)
+(require 'restclient)
+;;(require 'mmm-mode)
+;;(setq mmm-global-mode 'maybe)
+
+
 ;; Hidden minor-mode, by rich-minority substitue for the powerline
 (setq rm-excluded-modes
     '(" Guide"            ;; guide-key mode

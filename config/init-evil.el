@@ -18,45 +18,62 @@
 (evilnc-default-hotkeys)
 
 (evil-leader/set-key
-  ","  'projectile-find-file
-  "."  'switch-to-previous-buffer
-  "S"  'delete-trailing-whitespace
+  ","  'avy-goto-char-2
+  "."  'projectile-find-file
+  "c"  'comment-dwim
   "v"  'whitespace-mode                                                      ;; Show invisible characters
-  "j"  'ace-jump-mode
+  "S"  'delete-trailing-whitespace
   "d"  (lambda () (interactive) (evil-ex-call-command nil "bdelete" nil))
-  "D"  'open-current-line-in-codebase-search
   "h"  'fontify-and-browse                                                   ;; HTML-ize the buffer and browse the result
   "w"  'save-buffer
   "k"  (lambda () (interactive) (get-erl-man))
   "s"  'ag-project
-  "x"  'helm-M-x
   "y"  'yank-to-x-clipboard
   "B"  'magit-blame-mode
   "g"  'magit-status
   "l"  'windmove-left
   "r"  'windmove-right
-  "o"  'other-window
-  "er" 'evil-remove-too-much-space
   "nt" 'neotree-toggle
   "nn" 'narrow-and-set-normal                                                ;; Narrow to region and enter normal mode
   "nw" 'widen
-  "ef" 'end-of-defun
-  "mf" 'mark-defun
   "em" 'erase-message-buffer
-  "fn" 'cp-filename-of-current-buffer
-  "fp" 'cp-fullpath-of-current-buffer
   "eey" 'emmet-expand-yas
   "eel" 'emmet-expand-line
+  ":"  'eval-expression
   "ut" 'undo-tree-visualize
   "aa" 'align-regexp
+  "o"  'delete-other-windows                                                 ;; C-w o
+  "x"  'helm-M-x
+  "er" 'evil-remove-too-much-space
   ;"t"  'gtags-reindex
   ;"T"  'gtags-find-tag
   ;"gt" 'ggtags-find-tag-dwim
   ;"gr" 'ggtags-find-reference
+  ;"."  'switch-to-previous-buffer
+  ;"j"  'ace-jump-mode
   )
 
 ;; evil: Always use evil mode.
 (evil-mode 1)
+
+;; My personal evil settings.
+(setq evil-want-C-u-scroll t)
+(setq-default evil-want-C-i-jump nil)
+(setq-default evil-symbol-word-search t)
+(add-to-list 'evil-buffer-regexps '("\\*magit:"))
+(add-to-list 'evil-buffer-regexps '("\\*Flycheck"))
+(add-to-list 'evil-emacs-state-modes 'flycheck-error-list-mode)
+(evil-add-hjkl-bindings ag-mode-map 'normal
+  "n"   'evil-search-next
+  "N"   'evil-search-previous
+  "RET" 'compile-goto-error)
+(evil-add-hjkl-bindings occur-mode-map 'emacs
+  (kbd "/")       'evil-search-forward
+  (kbd "n")       'evil-search-next
+  (kbd "N")       'evil-search-previous
+  (kbd "C-d")     'evil-scroll-down
+  (kbd "C-u")     'evil-scroll-up
+  (kbd "C-w C-w") 'other-window)
 
 ;; Global bindings
 (global-set-key (kbd "C-r") 'undo-tree-redo)
