@@ -100,7 +100,6 @@
                                 protobuf-mode
                                 dockerfile-mode
                                 rainbow-mode
-                                mmm-mode
                                 ace-jump-mode
                                 avy
 
