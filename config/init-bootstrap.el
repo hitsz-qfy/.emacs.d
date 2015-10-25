@@ -57,6 +57,9 @@
 (setq-default truncate-lines t)                  ;; Don't break lines for me, please
 (defalias 'yes-or-no-p 'y-or-n-p)                ;; Answering just 'y' or 'n' will do
 
+;; docview to see pdf
+(custom-set-variables '(doc-view-continuous nil))
+
 (require 'linum)
 (global-linum-mode 1)
 (setq line-number-mode t)                        ;; Always display line and column numbers
