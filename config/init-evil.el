@@ -21,6 +21,8 @@
   ","  'avy-goto-char-2
   "."  'projectile-find-file
   "c"  'comment-dwim
+  "o"  'delete-other-windows
+  "O"   'other-frame
   "v"  'whitespace-mode                                                      ;; Show invisible characters
   "S"  'delete-trailing-whitespace
   "d"  (lambda () (interactive) (evil-ex-call-command nil "bdelete" nil))
@@ -42,7 +44,6 @@
   ":"  'eval-expression
   "ut" 'undo-tree-visualize
   "aa" 'align-regexp
-  "o"  'delete-other-windows                                                 ;; C-w o
   "x"  'helm-M-x
   "er" 'evil-remove-too-much-space
   ;"t"  'gtags-reindex
