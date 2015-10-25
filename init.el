@@ -5,7 +5,7 @@
 (setq load-path (cons "/usr/local/lib/gtags" load-path))
 (setq is-mac (equal system-type 'darwin))
 
-(setenv "GOPATH" (concat (getenv "HOME") "/goEnv"))
+(setenv "GOPATH" (concat (getenv "HOME") "go"))
 
 ;; things that don't come from package managers
 (defvar robertzhouxh/vendor-dir (expand-file-name "vendor" user-emacs-directory))
