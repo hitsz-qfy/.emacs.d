@@ -1,8 +1,4 @@
-(setq user-full-name "Xuehao Zhou")
-(setq user-mail-address "robertzhouxh@gmail.com")
-(setq exec-path (append exec-path '("/usr/local/bin")))
-(setq exec-path (append exec-path '("/usr/bin")))
-(setq load-path (cons "/usr/local/lib/gtags" load-path))
+(setq user-full-name "Xuehao Zhou") (setq user-mail-address "robertzhouxh@gmail.com") (setq exec-path (append exec-path '("/usr/local/bin"))) (setq exec-path (append exec-path '("/usr/bin"))) (setq load-path (cons "/usr/local/lib/gtags" load-path))
 (setq is-mac (equal system-type 'darwin))
 
 (setenv "GOPATH" (concat (getenv "HOME") "/goEnv"))
@@ -126,7 +122,7 @@
 
 ;; (when (not package-archive-contents)
 ;;   (package-refresh-contents))
-;;
+;; 
 ;; (dolist (p robertzhouxh/packages)
 ;;   (when (not (package-installed-p p))
 ;;     (package-install p)))

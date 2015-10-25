@@ -86,6 +86,40 @@
 (define-key evil-normal-state-map (kbd "C-c g r")   'helm-gtags-find-rtag)
 (define-key evil-visual-state-map (kbd "v") 'er/expand-region)
 
+(define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
+(define-key evil-insert-state-map "\C-e" 'end-of-line)
+(define-key evil-visual-state-map "\C-e" 'evil-end-of-line)
+(define-key evil-motion-state-map "\C-e" 'evil-end-of-line)
+(define-key evil-normal-state-map "\C-f" 'evil-forward-char)
+(define-key evil-insert-state-map "\C-f" 'evil-forward-char)
+(define-key evil-insert-state-map "\C-f" 'evil-forward-char)
+(define-key evil-normal-state-map "\C-b" 'evil-backward-char)
+(define-key evil-insert-state-map "\C-b" 'evil-backward-char)
+(define-key evil-visual-state-map "\C-b" 'evil-backward-char)
+(define-key evil-normal-state-map "\C-d" 'evil-delete-char)
+(define-key evil-insert-state-map "\C-d" 'evil-delete-char)
+(define-key evil-visual-state-map "\C-d" 'evil-delete-char)
+(define-key evil-normal-state-map "\C-n" 'evil-next-line)
+(define-key evil-insert-state-map "\C-n" 'evil-next-line)
+(define-key evil-visual-state-map "\C-n" 'evil-next-line)
+(define-key evil-normal-state-map "\C-p" 'evil-previous-line)
+(define-key evil-insert-state-map "\C-p" 'evil-previous-line)
+(define-key evil-visual-state-map "\C-p" 'evil-previous-line)
+(define-key evil-normal-state-map "\C-w" 'evil-delete)
+(define-key evil-insert-state-map "\C-w" 'evil-delete)
+(define-key evil-visual-state-map "\C-w" 'evil-delete)
+(define-key evil-normal-state-map "\C-y" 'yank)
+(define-key evil-insert-state-map "\C-y" 'yank)
+(define-key evil-visual-state-map "\C-y" 'yank)
+(define-key evil-normal-state-map "\C-k" 'kill-line)
+(define-key evil-insert-state-map "\C-k" 'kill-line)
+(define-key evil-visual-state-map "\C-k" 'kill-line)
+(define-key evil-normal-state-map "Q" 'call-last-kbd-macro)
+(define-key evil-visual-state-map "Q" 'call-last-kbd-macro)
+(define-key evil-normal-state-map (kbd "TAB") 'evil-undefine)
+
+
+
 (defun minibuffer-keyboard-quit ()
   "Abort recursive edit.
 In Delete Selection mode, if the mark is active, just deactivate it;
@@ -153,14 +187,14 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
         (dired-mode . emacs)
         (compilation-mode . emacs)
         (js2-error-buffer-mode . emacs)
-        ;(magit-log-edit-mode . emacs)
-        ;(magit-commit-mode . normal)
-        ;(magit-diff-mode . normal)
+        (magit-log-edit-mode . emacs)
+        (magit-commit-mode . emacs)
+        (magit-diff-mode . normal)
         )
       do (evil-set-initial-state mode state))
 
 ;; Finally, there are some modes that I want to always be in Emacs mode instead of Evil.
 (setq evil-emacs-state-modes
-      '(archive-mode bookmark-bmenu-mode bookmark-edit-annotation-mode browse-kill-ring-mode completion-list-mode ediff-mode ediff-meta-mode efs-mode etags-select-mode gdb-breakpoints-mode gdb-disassembly-mode gdb-frames-mode gdb-locals-mode gdb-memory-mode gdb-registers-mode gdb-threads-mode ibuffer-mode magit-key-mode magit-log-mode magit-mode magit-reflog-mode magit-show-branches-mode magit-branch-manager-mode magit-stash-mode magit-status-mode magit-wazzup-mode org-agenda-mode package-menu-mode))
+      '(magit-commit-mode magit-log-edit-mode magit-key-mode magit-log-mode magit-mode magit-reflog-mode magit-show-branches-mode magit-branch-manager-mode magit-stash-mode magit-status-mode magit-wazzup-mode ibuffer-mode org-agenda-mode ))
 
 (provide 'init-evil)
