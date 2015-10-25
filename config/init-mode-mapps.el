@@ -110,8 +110,9 @@
 ;;(add-to-list 'auto-mode-alist '(".riak_test.config" . erlang-mode))
 (add-to-list 'auto-mode-alist '("\\.erlang$" . erlang-mode)) ;; User customizations file
 
+;; pdf
+(add-to-list 'auto-mode-alist '("\\.pdf$" doc-view-mode))
 (add-to-list 'auto-mode-alist '("\\.pum$" . puml-mode))
-
 (autoload 'gtags-mode "gtags" "" t)
 
 (provide 'init-mode-mapps)
