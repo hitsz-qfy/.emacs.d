@@ -112,6 +112,8 @@
 
 (require 'cl-lib)
 
+(add-hook 'doc-view-mode-hook #'auto-revert-mode)
+
 ;; Unclutter the modeline
 (require 'diminish)
 (eval-after-load "yasnippet" '(diminish 'yas-minor-mode))
@@ -211,5 +213,8 @@
 (load-theme 'monokai t)
 (when window-system
   (load-theme 'solarized-dark t))
+
+; 关闭启动提示错误
+(setq ad-redefinition-action 'accept)
 
 (provide 'init-bootstrap)

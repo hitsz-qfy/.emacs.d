@@ -1,9 +1,28 @@
-(setq user-full-name "Jin Zhong")
-(setq user-mail-address "zhongjin616@gmail.com")
+(setq user-full-name "Xuehao Zhou")
+(setq user-mail-address "robertzhouxh@gmail.com")
 (setq exec-path (append exec-path '("/usr/local/bin")))
 (setq exec-path (append exec-path '("/usr/bin")))
 (setq load-path (cons "/usr/local/lib/gtags" load-path))
+
+;; What OS/window system am I using?
 (setq is-mac (equal system-type 'darwin))
+;; Adapted from:
+;; https://github.com/purcell/emacs.d/blob/master/init.el
+(defconst *is-a-mac*
+  (eq system-type 'darwin)
+  "Is this running on OS X?")
+
+(defconst *is-carbon-emacs*
+  (and *is-a-mac* (eq window-system 'mac))
+  "Is this the Carbon port of Emacs?")
+
+(defconst *is-cocoa-emacs*
+  (and *is-a-mac* (eq window-system 'ns))
+  "Is this the Cocoa version of Emacs?")
+
+(defconst *is-linux*
+  (eq system-type 'gnu/linux)
+  "Is this running on Linux?")
 
 (setenv "GOPATH" (concat (getenv "HOME") "go"))
 
@@ -64,6 +83,7 @@
                                 neotree
                                 paredit
                                 htmlize
+                                popwin
 
                                 flycheck
                                 flycheck-pos-tip
@@ -126,7 +146,7 @@
 
 ;; (when (not package-archive-contents)
 ;;   (package-refresh-contents))
-;; 
+;;
 ;; (dolist (p robertzhouxh/packages)
 ;;   (when (not (package-installed-p p))
 ;;     (package-install p)))
@@ -186,6 +206,7 @@
 (require 'init-cc-mode)
 (require 'init-erlang)
 (require 'init-evil)
+(require 'init-popwin)
 (require 'init-man)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -195,10 +216,14 @@
  '(custom-safe-themes
    (quote
     ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "96998f6f11ef9f551b427b8853d947a7857ea5a578c75aa9c4e7c73fe04d10b4" "3cc2385c39257fed66238921602d8104d8fd6266ad88a006d0a4325336f5ee02" "9b59e147dbbde5e638ea1cde5ec0a358d5f269d27bd2b893a0947c4a867e14c1" "30b7087fdd149a523aa614568dc6bacfab884145f4a67d64c80d6011d4c90837" "5999e12c8070b9090a2a1bbcd02ec28906e150bb2cdce5ace4f965c76cf30476" "d8f76414f8f2dcb045a37eb155bfaa2e1d17b6573ed43fb1d18b936febc7bbc2" default)))
+ '(doc-view-continuous nil)
  '(git-gutter:added-sign "++")
  '(git-gutter:deleted-sign "--")
  '(git-gutter:handled-backends (quote (git hg bzr)))
  '(git-gutter:modified-sign "==")
+ '(livedown:autostart nil)
+ '(livedown:open t)
+ '(livedown:port 1337)
  '(package-selected-packages
    (quote
     (htmlize neotree zenburn-theme yasnippet whitespace-cleanup-mode web-mode tangotango-theme tabbar switch-window sublime-themes spacegray-theme solarized-theme smex smartrep smartparens smart-mode-line sass-mode restclient rainbow-mode rainbow-delimiters python-mode protobuf-mode powerline multiple-cursors monokai-theme markdown-mode magit lua-mode less-css-mode json-mode js2-mode ido-vertical-mode ido-ubiquitous helm-projectile helm-gtags guide-key golden-ratio git-messenger git-gutter ggtags fullframe flycheck-pos-tip flycheck-clojure flx-ido expand-region evil-surround evil-paredit evil-nerd-commenter evil-matchit evil-leader emmet-mode dockerfile-mode dired-rainbow dired-details+ dired+ diminish dash-at-point company-c-headers coffee-mode cmake-mode ag ack ace-jump-mode))))
