@@ -24,7 +24,7 @@
   (eq system-type 'gnu/linux)
   "Is this running on Linux?")
 
-(setenv "GOPATH" (concat (getenv "HOME") "go"))
+(setenv "GOPATH" (concat (getenv "HOME") "goEnv"))
 
 ;; things that don't come from package managers
 (defvar robertzhouxh/vendor-dir (expand-file-name "vendor" user-emacs-directory))
