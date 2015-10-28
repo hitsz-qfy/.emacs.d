@@ -108,7 +108,7 @@
 (add-to-list 'auto-mode-alist '("rebar.config.script" . erlang-mode)) ;; rebar
 (add-to-list 'auto-mode-alist '("app.config" . erlang-mode)) ;; embedded node/riak
 ;;(add-to-list 'auto-mode-alist '(".riak_test.config" . erlang-mode))
-(add-to-list 'auto-mode-alist '("\\.erlang$" . erlang-mode)) ;; User customizations file
+(add-to-list 'auto-mode-alist '("\\.erl$" . erlang-mode)) ;; User customizations file
 
 ;; pdf
 (add-to-list 'auto-mode-alist '("\\.pdf$" doc-view-mode))
