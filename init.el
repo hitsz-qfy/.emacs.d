@@ -1,5 +1,5 @@
-(setq user-full-name "Xuehao Zhou")
-(setq user-mail-address "robertzhouxh@gmail.com")
+(setq user-full-name "Xuancong Lee")
+(setq user-mail-address "robertzhouxh@gmail.com")		+(setq user-mail-address "congleetea@gmail.com")
 (setq exec-path (append exec-path '("/usr/local/bin")))
 (setq exec-path (append exec-path '("/usr/bin")))
 (setq load-path (cons "/usr/local/lib/gtags" load-path))
