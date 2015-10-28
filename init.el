@@ -1,5 +1,5 @@
 (setq user-full-name "Xuancong Lee")
-(setq user-mail-address "robertzhouxh@gmail.com")		+(setq user-mail-address "congleetea@gmail.com")
+(setq user-mail-address "congleetea@gmail.com")
 (setq exec-path (append exec-path '("/usr/local/bin")))
 (setq exec-path (append exec-path '("/usr/bin")))
 (setq load-path (cons "/usr/local/lib/gtags" load-path))
@@ -27,14 +27,14 @@
 (setenv "GOPATH" (concat (getenv "HOME") "goEnv"))
 
 ;; things that don't come from package managers
-(defvar robertzhouxh/vendor-dir (expand-file-name "vendor" user-emacs-directory))
-(defvar robertzhouxh/config-dir (expand-file-name "config" user-emacs-directory))
+(defvar congleetea/vendor-dir (expand-file-name "vendor" user-emacs-directory))
+(defvar congleetea/config-dir (expand-file-name "config" user-emacs-directory))
 
-(add-to-list 'load-path robertzhouxh/vendor-dir)
-(add-to-list 'load-path robertzhouxh/config-dir)
+(add-to-list 'load-path congleetea/vendor-dir)
+(add-to-list 'load-path congleetea/config-dir)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
-(dolist (project (directory-files robertzhouxh/vendor-dir t "\\w+"))
+(dolist (project (directory-files congleetea/vendor-dir t "\\w+"))
   (when (file-directory-p project)
     (add-to-list 'load-path project)))
 
@@ -53,7 +53,7 @@
 (setq package-pinned-packages '((gtags . "marmalade")
                                 (magit . "melpa-stable")))
 
-(defvar robertzhouxh/packages '(dash                          ;A modern list api for Emacs. No 'cl required
+(defvar congleetea/packages '(dash                          ;A modern list api for Emacs. No 'cl required
                                 ack                           ;do grep
                                 ag                            ;do grep
                                 expand-region                 ;smart region selection
@@ -147,18 +147,18 @@
 ;; (when (not package-archive-contents)
 ;;   (package-refresh-contents))
 ;;
-;; (dolist (p robertzhouxh/packages)
+;; (dolist (p congleetea/packages)
 ;;   (when (not (package-installed-p p))
 ;;     (package-install p)))
-(defun robertzhouxh/packages-installed-p ()
-  (loop for pkg in robertzhouxh/packages
+(defun congleetea/packages-installed-p ()
+  (loop for pkg in congleetea/packages
         when (not (package-installed-p pkg)) do (return nil)
         finally (return t)))
 
-(unless (robertzhouxh/packages-installed-p)
+(unless (congleetea/packages-installed-p)
   (message "%s" "Refreshing package database...")
   (package-refresh-contents)
-  (dolist (pkg robertzhouxh/packages)
+  (dolist (pkg congleetea/packages)
     (when (not (package-installed-p pkg))
       (package-install pkg))))
 
