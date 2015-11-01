@@ -43,9 +43,22 @@
   "eel" 'emmet-expand-line
   ":"  'eval-expression
   "ut" 'undo-tree-visualize
-  "aa" 'align-regexp
-  "x"  'helm-M-x
+  "ar" 'align-regexp
   "er" 'evil-remove-too-much-space
+  "xm" 'smex
+  "xf" 'ido-find-file
+  "xb" 'ido-switch-buffer
+  "xk" 'ido-kill-buffer
+  "xvm" 'vc-rename-file-and-buffer
+  "fb" 'flyspell-buffer
+  "fe" 'flyspell-goto-next-error
+  "fa" 'flyspell-auto-correct-word
+  "xx" 'er/expand-region
+  "x2" 'split-window-vertically
+  "x3" 'split-window-horizontally
+  "xr" 'rotate-windows
+  "xt" 'toggle-window-split
+  "jb" 'js-beautify
   ;"t"  'gtags-reindex
   ;"T"  'gtags-find-tag
   ;"gt" 'ggtags-find-tag-dwim
@@ -58,23 +71,20 @@
 (evil-mode 1)
 
 ;; My personal evil settings.
+;; This must appear before the call to (require 'evil), else it will have no effect.
 (setq evil-want-C-u-scroll t)
+(require 'evil)
+
+; Save buffers with Ctrl+S
+(global-set-key (kbd "C-s") 'evil-write)
+
+
 (setq-default evil-want-C-i-jump nil)
 (setq-default evil-symbol-word-search t)
 (add-to-list 'evil-buffer-regexps '("\\*magit:"))
 (add-to-list 'evil-buffer-regexps '("\\*Flycheck"))
 (add-to-list 'evil-emacs-state-modes 'flycheck-error-list-mode)
-(evil-add-hjkl-bindings ag-mode-map 'normal
-  "n"   'evil-search-next
-  "N"   'evil-search-previous
-  "RET" 'compile-goto-error)
-(evil-add-hjkl-bindings occur-mode-map 'emacs
-  (kbd "/")       'evil-search-forward
-  (kbd "n")       'evil-search-next
-  (kbd "N")       'evil-search-previous
-  (kbd "C-d")     'evil-scroll-down
-  (kbd "C-u")     'evil-scroll-up
-  (kbd "C-w C-w") 'other-window)
+
 
 ;; Global bindings
 (global-set-key (kbd "C-r") 'undo-tree-redo)
@@ -85,6 +95,7 @@
 (define-key evil-normal-state-map (kbd "C-t")   'helm-gtags-pop-stack)
 (define-key evil-normal-state-map (kbd "C-c g r")   'helm-gtags-find-rtag)
 (define-key evil-visual-state-map (kbd "v") 'er/expand-region)
+(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
 
 (define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
 (define-key evil-insert-state-map "\C-e" 'end-of-line)
@@ -96,25 +107,12 @@
 (define-key evil-normal-state-map "\C-b" 'evil-backward-char)
 (define-key evil-insert-state-map "\C-b" 'evil-backward-char)
 (define-key evil-visual-state-map "\C-b" 'evil-backward-char)
-(define-key evil-normal-state-map "\C-d" 'evil-delete-char)
-(define-key evil-insert-state-map "\C-d" 'evil-delete-char)
-(define-key evil-visual-state-map "\C-d" 'evil-delete-char)
 (define-key evil-normal-state-map "\C-n" 'evil-next-line)
 (define-key evil-insert-state-map "\C-n" 'evil-next-line)
 (define-key evil-visual-state-map "\C-n" 'evil-next-line)
 (define-key evil-normal-state-map "\C-p" 'evil-previous-line)
 (define-key evil-insert-state-map "\C-p" 'evil-previous-line)
 (define-key evil-visual-state-map "\C-p" 'evil-previous-line)
-(define-key evil-normal-state-map "\C-w" 'evil-delete)
-(define-key evil-insert-state-map "\C-w" 'evil-delete)
-(define-key evil-visual-state-map "\C-w" 'evil-delete)
-(define-key evil-normal-state-map "\C-y" 'yank)
-(define-key evil-insert-state-map "\C-y" 'yank)
-(define-key evil-visual-state-map "\C-y" 'yank)
-(define-key evil-normal-state-map "\C-k" 'kill-line)
-(define-key evil-insert-state-map "\C-k" 'kill-line)
-(define-key evil-visual-state-map "\C-k" 'kill-line)
-(define-key evil-normal-state-map "Q" 'call-last-kbd-macro)
 (define-key evil-visual-state-map "Q" 'call-last-kbd-macro)
 (define-key evil-normal-state-map (kbd "TAB") 'evil-undefine)
 

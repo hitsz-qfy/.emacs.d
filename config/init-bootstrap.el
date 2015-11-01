@@ -32,10 +32,11 @@
 (setq auto-save-default nil)
 
 ;; no buffers when starting
-(setq initial-scratch-message "")    ;; Makes *scratch* empty.
+(setq initial-scratch-message "")    ;; Makes *scratch* empty
+
 ;;Removes *messages* from the buffer.
-;;(setq-default message-log-max nil)
-;;(kill-buffer "*Messages*")
+(setq-default message-log-max nil)
+(kill-buffer "*Messages*")
 
 ;; UTF-8 please
 (setq locale-coding-system 'utf-8) ; pretty

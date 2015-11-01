@@ -7,7 +7,6 @@
 (global-set-key (kbd  "C-c q") 'search-code)
 
 (global-set-key (kbd "M-/") 'comment-or-uncomment-region-or-line)
-(global-set-key (kbd "M-\\") 'dabbrev-expand)
 
 (global-set-key (kbd "M-]") 'next-buffer)
 (global-set-key (kbd "M-[") 'previous-buffer)
@@ -25,8 +24,6 @@
 (global-set-key (kbd "C-c C-v") 'browse-url)
 (global-set-key (kbd "RET") 'newline-and-indent)
 
-(global-set-key (kbd "C-u") 'kill-back-to-indentation)
-(global-set-key (kbd "C-o") 'sanityinc/open-line-with-reindent)
 (global-set-key (kbd "C-c o s") 'sudo-reopen-file)
 
 
